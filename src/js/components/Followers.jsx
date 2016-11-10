@@ -6,7 +6,7 @@ var GithubUser = require('./GithubUser')
 
 var Followers = React.createClass({
 	componentDidMount: function(){
-			$.getJSON(`https://api.github.com/users/{this.props.params.username}/followers?access_token=305150e4c2d776c68dcc844471c8ebc66f267a5b`)
+			$.getJSON(`https://api.github.com/users/{this.props.params.username}/followers?access_token=`)
 				.then(
 					function(userFollowers){
 						that.setState({
