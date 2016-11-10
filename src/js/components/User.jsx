@@ -4,6 +4,7 @@ var React = require('react');
 var $ = require('jquery');
 var Link = require('react-router').Link;
 
+
 var User = React.createClass({
     propTypes: {
         // PropTypes.shape is like PropTypes.object but lets you define what's expected to be inside the object
@@ -29,7 +30,7 @@ var User = React.createClass({
     componentDidMount: function() {
         var that = this; // What's this?? Make sure you remember or understand what this line does
         
-        $.getJSON(`https://api.github.com/users/${this.props.params.username}`)
+        $.getJSON(`https://api.github.com/users/${this.props.params.username}?access_token=305150e4c2d776c68dcc844471c8ebc66f267a5b`)
             .then(
                 function(user) {
                     // Why that.setState instead of this.setState??
@@ -94,6 +95,10 @@ var User = React.createClass({
                         {stats.map(this.renderStat)}              
                     </ul>
                 </div>
+
+                // <div>
+                //     {this.props.children}
+                // </div>
             </div>
         );
     }
