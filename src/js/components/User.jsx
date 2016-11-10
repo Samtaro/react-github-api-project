@@ -3,7 +3,7 @@ var React = require('react');
 // Later on you might want to use a lighter library that only does AJAX, like isomorphic-fetch or superagent
 var $ = require('jquery');
 var Link = require('react-router').Link;
-
+var Followers = require('./Followers');
 
 var User = React.createClass({
     propTypes: {
@@ -54,6 +54,7 @@ var User = React.createClass({
         );
     },
     render: function() {
+        console.log(this.state.user)
         // If the state doesn't have a user key, it means the AJAX didn't complete yet. Simply render a LOADING indicator.
         if (!this.state.user) {
             return (<div className="user-page">LOADING...</div>);
@@ -95,10 +96,8 @@ var User = React.createClass({
                         {stats.map(this.renderStat)}              
                     </ul>
                 </div>
-
-                // <div>
-                //     {this.props.children}
-                // </div>
+                {this.props.children}
+                
             </div>
         );
     }
